@@ -1,0 +1,28 @@
+.totaldiv {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    background-color: black;
+  }
+  
+  .Header_div {
+    height:40px;
+    margin-right: 0%;
+    margin-bottom:2%;
+  }
+  
+  .searchcard_div {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 20px auto;
+  }
+  .search_img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px; 
+  }
+  
