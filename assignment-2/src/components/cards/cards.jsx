@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import Map from './Mapforcards';
+import React, { useState,useContext } from "react";
+import Map from "./Mapforcards";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-const Carousel = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
+import { Usercontext } from "../../App";
+const Cards = ({ setAllMovies, watchlist, addToWatchlist }) => {
+  const movies=useContext(Usercontext)
   const [startIndex, setStartIndex] = useState(0);
-
   const handlePrev = () => {
     setStartIndex((prevIndex) => Math.max(0, prevIndex - 6));
   };
 
   const handleNext = () => {
-    setStartIndex((prevIndex) =>
-      Math.min(movies.length - 6, prevIndex + 6)
-    );
+    setStartIndex((prevIndex) => Math.min(movies.length - 6, prevIndex + 6));
   };
 
   return (
@@ -25,9 +24,8 @@ const Carousel = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
       />
-
     </div>
   );
 };
 
-export default Carousel;
+export default Cards;

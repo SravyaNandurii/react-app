@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import "../../components/style.css";
+import "../../components/style.scss";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useNavigate } from "react-router-dom";
 function Header({ setSearchValue }) {
-  const onInputChange  = (e) => {
-    e.preventDefault()
+  const onInputChange = (e) => {
+    e.preventDefault();
     setSearchValue(e.target.value);
-    console.log('Input value:', e.target.value);
+    console.log("Input value:", e.target.value);
   };
-  const navigate=useNavigate();
+  const navigate = useNavigate();
   const [scroll, setscroll] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const Navbar = () => {
@@ -21,9 +21,9 @@ function Header({ setSearchValue }) {
       setscroll(false);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     window.addEventListener("scroll", Navbar);
-  })
+  });
   const handleSearchIconClick = () => {
     setIsSearchOpen(!isSearchOpen);
   };
@@ -40,18 +40,27 @@ function Header({ setSearchValue }) {
         <a href="/tv-shows">Characters</a>
         <a href="/movies">Movies</a>
         <a href="/new-releases">New Releases</a>
-        <a href="/mylist" onClick={()=>navigate('/mylist')}>My List</a>
+        <a href="/mylist" onClick={() => navigate("/mylist")}>
+          My List
+        </a>
       </div>
-      <div className={`header_icons ${isSearchOpen ? "search-open" : "search-open"}`}>
+      <div
+        className={`header_icons ${
+          isSearchOpen ? "search-open" : "search-open"
+        }`}
+      >
         {isSearchOpen ? (
-          <input  className="header_inputsearch" onClick={()=>navigate('/search')} onChange={onInputChange} />
+          <input
+            className="header_inputsearch"
+            onClick={() => navigate("/search")}
+            onChange={onInputChange}
+          />
         ) : (
           <div>
             <SearchIcon onClick={handleSearchIconClick} />
           </div>
         )}
-        
-        </div>
+      </div>
       <div className="header_onlyicons">
         <div className="header_notification">
           <NotificationsNoneIcon />
@@ -67,7 +76,9 @@ function Header({ setSearchValue }) {
           <ArrowDropDownIcon />
           <div className="Options">
             <span className="span">Settings</span>
-            <span className="span" onClick={()=>navigate('/')}>Logout</span>
+            <span className="span" onClick={() => navigate("/")}>
+              Logout
+            </span>
           </div>
         </div>
       </div>

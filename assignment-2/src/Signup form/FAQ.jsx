@@ -16,7 +16,10 @@ function Faq() {
       <div className="Faqtotal__onequestion">
         <div className="Faqtotal__onequestion__firstquestion">
           <a>How can I cancel ?</a>
-          <button className="Faqtotal__onequestion__firstquestion__plusbutton" onClick={toggleDescription}>
+          <button
+            className="Faqtotal__onequestion__firstquestion__plusbutton"
+            onClick={toggleDescription}
+          >
             <AddIcon />
           </button>
         </div>
@@ -35,7 +38,10 @@ function Faq() {
       <p className="navtotal__Signupfirstpartdiv__Readytowatch">
         Ready to watch? Enter your email to create or restart your membership.
       </p>
-      <input className="navtotal__Signupfirstpartdiv__enteremail" placeholder="Email Address"></input>
+      <input
+        className="navtotal__Signupfirstpartdiv__enteremail"
+        placeholder="Email Address"
+      ></input>
       <button className="navtotal__Signupfirstpartdiv__getstarted">
         Get Started <ChevronRightIcon />
       </button>

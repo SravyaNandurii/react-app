@@ -1,11 +1,6 @@
-// Search.js
 import React from "react";
 import Header from "../header/header";
 import "../Search.jsx/Search.scss";
-import { useState, useEffect } from "react";
-import Card from "../cards/card";
-import Cards from "../cards/cards";
-import Footer from "../../sign-in/footer";
 function Search({ setSearchValue, movielist, entered }) {
   const filteredMovies = movielist.filter((each) =>
     each.title.toLowerCase().includes(entered.toLowerCase())

@@ -4,7 +4,6 @@ import Bottom_cards from './bottom_cards';
 import Faq from './FAQ';
 import './signup.scss';
 import Footerup from '../Signup form/Footer_signup';
-import Footer from '../sign-in/footer';
 function SignupPage(){
     return(
     <div >

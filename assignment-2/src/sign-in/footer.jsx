@@ -1,6 +1,5 @@
 import React from "react";
 import "./SignInPage.scss";
-import LanguageIcon from '@mui/icons-material/Language';
 function Footer() {
   return (
     <div className="signin_footer">
