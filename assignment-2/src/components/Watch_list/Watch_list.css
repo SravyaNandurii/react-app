@@ -1,0 +1,158 @@
+.yay{
+    height:1000px;
+    background-color: rgb(5, 5, 5);
+    
+}
+.total {
+    color: white;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    margin-left:5%;
+  }
+  
+  .full {
+    color: brown;
+    /* height:100px; */
+    
+  }
+  .card-container1{
+    /* display:flex; */
+    margin-top:12%;
+    margin-left: 15%;
+    
+    
+  }
+  .card-container1:hover {
+    position: relative;
+    border:2px border white;
+  }
+  
+  /* .indcard1 :hover{
+    transition: transform 0.3s ease-in-out;
+  } */
+  
+  .card-container1:hover .indcard1 {
+    transform: scale(1.1,2); 
+    border-radius: 5%;
+    width:340px;
+    background-color: rgb(39, 37, 37);
+    transition:1s;
+    height:180px;
+    margin-left:2%;
+    /* margin-top:10%; */
+  }
+  
+  
+  
+  .hover-content1 {
+    position: absolute;
+    left: 0;
+    width:300px;
+    display: none;
+    top:49%;
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    margin-top:12%;
+    z-index: 10;
+  }
+  
+  .card-container1:hover
+  .hover-content1 {
+    display: block;
+    opacity: 1;
+    margin-top: 3%;
+    
+  }
+  
+  .card-container1:hover
+  .movie_img1{
+    height:89px;
+    width: 340px;
+    /* margin-left:2.7%;
+    margin-top:2%;
+    border-radius: 10px; */
+    margin-bottom:10%;
+  }
+  
+  .card-container1:hover{
+    .card_playbutton1{
+      border-radius: 50%;
+      margin-bottom:10%;
+      margin-right:9%;
+      border:none;
+    }
+  }
+  .card-container1:hover{
+    .card_addlist1{
+      border-radius: 50%;
+      margin-bottom:10%;
+      margin-right:9%;
+      border:none;
+    }
+  }
+  .card-container1:hover{
+    .card_like1{
+      border-radius: 50%;
+      margin-bottom:10%;
+      margin-right:9%;
+      border:none;
+    }
+  }
+  .card-container1:hover{
+    .card_dropdown1{
+      border-radius: 50%;;
+      margin-bottom:10%;
+      margin-left:24%;
+      border:none;
+    }
+  }
+  .card-container1:hover{
+    .card_Match1{
+      font-size:1.2vw;
+      color:green;
+      /* display:inline; */
+      top:5%;
+      margin-bottom:10%;
+      margin-right:9%;
+    }
+  }
+  .card-container1:hover{
+    .card_UA1{
+      font-size:1.2vw;
+      /* border:1px solid #757575; */
+      margin-bottom:10%;
+      margin-right:9%;
+      color:grey;
+  
+    }
+  }
+  .card-container1:hover{
+    .card_duration1{
+      font-size:1.2vw;
+      /* margin-bottom:12%; */
+      margin-right:5%;
+      color:grey;
+      display:inline;
+      
+    }
+  }
+  .card-container1:hover{
+    .unordered1{
+      margin-top:0%;
+      margin-left:0%;
+      padding-left:0;
+      display:flex;
+      gap:10%
+      /* justify-content: space-between; */
+    }
+  }
+  .card-container1:hover{
+    .rating1{
+      font-size:1.2vw;
+      color:#757575;
+      margin-bottom:10%;
+      /* margin-right:9%; */
+    }
+  }
