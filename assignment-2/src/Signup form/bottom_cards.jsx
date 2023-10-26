@@ -64,6 +64,10 @@ function Bottom_cards() {
           <img src="https://occ-0-3215-3663.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d" />
         </div>
       </div>
+      {/* <div>
+    <Faq />
+    <Footerup />
+    </div> */}
     </div>
   );
 }

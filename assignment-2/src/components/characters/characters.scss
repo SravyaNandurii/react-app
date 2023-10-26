@@ -1,0 +1,30 @@
+.total {
+    background-color: black;
+    width: 100vw;
+  
+    &__characters {
+      display: flex;
+      flex-wrap: wrap;
+  
+      &__single {
+        margin-right: -9%;
+        margin-top: 4%;
+        margin-bottom: 5%;
+        transition: transform 500ms ease-in-out;
+  
+        &__img {
+          border-radius: 50%;
+          height: 200px;
+          width: 52%;
+          opacity: 0.8; 
+          transition: height 0.3s ease, opacity 0.3s ease; 
+  
+          &:hover {
+            opacity: 1;
+            height: 205px;
+          }
+        }
+      }
+    }
+  }
+  

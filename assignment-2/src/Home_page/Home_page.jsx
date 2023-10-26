@@ -2,6 +2,7 @@ import Header from "../components/header/header";
 import Cards from "../components/cards/cards";
 import MovieBanner from "../components/MovieBanner/MovieBanner";
 import Footer from "../components/footer/footer";
+import { useNavigate } from "react-router-dom";
 function Home_page({ name, watchlist, addToWatchlist }) {
   return (
     <div className="body">

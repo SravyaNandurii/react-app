@@ -6,7 +6,7 @@ import Search from "./components/Search.jsx/Search";
 import View from "./components/Watch_list/view";
 import SignupPage from "./Signup form/Signup_page";
 import TotalSignup_form from "./Signup form/totalfomsignup";
-
+import Charcters from "./components/characters/characters";
 export const Usercontext = createContext();
 
 const App = () => {
@@ -23,7 +23,7 @@ const App = () => {
   }, [searchValue]);
 
   useEffect(() => {
-    fetch("https://mocki.io/v1/a70a0093-187f-4ad4-b68e-aa02c94f8736")
+    fetch("https://mocki.io/v1/f5ca167b-8a95-47bb-90dd-287bc4751c2c")
       .then((response) => response.json())
       .then((data) => setMovies(data))
       .catch((error) => console.error("Error fetching data", error));
@@ -56,6 +56,7 @@ const App = () => {
     { path: "/mylist", element: <View watchlist1={watchlist} removeFromWatchlist={removeFromWatchlist} /> },
     { path: "/signup", element: <SignupPage /> },
     { path: "/form", element: <TotalSignup_form /> },
+    {path :"/characters",element:<Charcters />}
   ]);
 
   return (

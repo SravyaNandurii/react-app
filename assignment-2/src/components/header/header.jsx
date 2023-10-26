@@ -37,7 +37,7 @@ function Header({ setSearchValue }) {
       </div>
       <div className="header_links">
         <a href="/home">Home</a>
-        <a href="/tv-shows">Characters</a>
+        <a href="/characters">Characters</a>
         <a href="/movies">Movies</a>
         <a href="/new-releases">New Releases</a>
         <a href="/mylist" onClick={() => navigate("/mylist")}>

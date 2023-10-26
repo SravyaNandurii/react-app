@@ -325,19 +325,46 @@
     color:white;
   }
 }
+.card_like {
+  position: relative;
+}
+
+.card_like__moreoptions {
+  position: absolute;
+  right: 0;
+  background-color: #6b6565;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  border-radius: 4px;
+  display: none;
+  color:rgb(255, 255, 255);
+ 
+  transition: opacity 0.3s ease-in-out; /* Add the transition property */
+}
+
+.card_like:hover .card_like__moreoptions {
+  display: block;
+  display: flex;
+  margin-top:-88%;
+  gap:10px;
+  margin-right: -102%;
+  opacity: 1;
+}
 .card-container:hover {
   .card_like {
     border-radius: 50%;
-    margin-right: 3%;
+    margin-right: -26%;
     border: none;
     background-color: rgb(39, 37, 37);
+    position: relative;
     color:white;
   }
+  
 }
 .card-container:hover {
   .card_dropdown {
     border-radius: 50%;
-    margin-left: 26%;
+    margin-left: 56%;
     border: none;
     background-color: rgb(39, 37, 37);
     color:white;
