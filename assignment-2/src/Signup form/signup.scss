@@ -13,42 +13,55 @@ $background-color_8: rgb(5, 5, 5);
 body {
   background-color: $background-color_1;
 }
-.navtotal {
+
+.navtotal1 {
   height: 650px;
   background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/fe1147dd-78be-44aa-a0e5-2d2994305a13/IN-en-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg");
   &__Signupfirstpartdiv {
     background: rgba(0, 0, 0, 0.6);
     height: 650px;
 
-    &__logoimg {
-      height: 100px;
-      width: 140px;
-      margin-left: 5%;
-    }
-    &__English {
-      margin-left: 60%;
-      border-radius: 5px;
-      margin-right: 2%;
-      color: $color_1;
-      font-size: 1.1vw;
-      background-color: $background-color_2;
-      border: 1px solid white;
-    }
-    &__signinbutton1 {
-      border-radius: 5px;
-      color: $color_1;
-      background-color: $background-color_3;
-      border: none;
-      font-size: 0.9vw;
-      height: 7%;
-      width: 6%;
-      font-weight: 600;
+    &__navbar {
+      display: flex;
+      &__logoimg {
+        height: 100px;
+        width: 140px;
+        margin-left: 5%;
+      }
+      &__English {
+        display: flex;
+        margin-left: 60%;
+        border-radius: 5px;
+        margin-right: 2%;
+        color: $color_1;
+        height: 5%;
+        width: 9%;
+        gap: 5%;
+        margin-top: 2.5%;
+        font-size: 1.1vw;
+        background-color: $background-color_2;
+        border: 1px solid white;
+        &__text {
+          margin-top: 1.5%;
+        }
+      }
+      &__signinbutton1 {
+        border-radius: 5px;
+        color: $color_1;
+        background-color: $background-color_3;
+        border: none;
+        font-size: 1vw;
+        height: 50px;
+        width: 6%;
+        margin-top: 2%;
+        font-weight: 600;
+      }
     }
     &__unlimited {
       margin-top: 8%;
       color: $color_1;
       font-weight: 900;
-      margin-left: 24%;
+      margin-left: 30%;
     }
     &__Watchanywhere {
       margin-top: 1%;
@@ -72,25 +85,38 @@ body {
       border-radius: 5px;
       background: rgba(0, 0, 0, 0.6);
       border: none;
+      padding-left: 1%;
+      color:white;
       border: 1px solid white;
     }
     &__getstarted {
-      margin-left: 1%;
-      height: 7%;
-      width: 12%;
+      margin-left: 60%;
+      height: 8%;
+      align-items: center;
+      justify-content: center;
+      width: 10%;
       color: $color_1;
       border: none;
       border-radius: 5px;
+      margin-top: -3.8%;
       background-color: $background-color_4;
+      display: flex;
+      &__writeup {
+        font-size: 1.2vw;
+      }
+      &__arrow {
+        // border:2px solid rgb(125, 187, 18);
+        font-size: large;
+      }
     }
   }
 }
 .total {
   width: 100vw;
-  margin-left:0%;
+  margin-left: 0%;
   &__Seperatingdiv {
     border: 4px solid rgb(40, 38, 38);
-    width:100vw;
+    width: 100vw;
   }
   &__firstcard {
     display: flex;
@@ -125,50 +151,111 @@ body {
     }
   }
 }
-.Faqtotal{
-    background-color: black;
-    &__seperate {
-        height: 10%;
-        background-color: $background-color_1;
-      }
-    &__Faqheading {
+.Faqtotal {
+  background-color: black;
+  &__seperate {
+    height: 10%;
+    background-color: $background-color_1;
+    &__getstarted2{
+      margin-left: 60%;
+      height: 8%;
+      align-items: center;
+      justify-content: center;
+      width: 10%;
+      color: $color_1;
+      border: none;
+      border-radius: 5px;
+      margin-top: -1.9%;
+      background-color: $background-color_4;
+      display: flex;
+    }
+  }
+  &__Faqheading {
+    color: $color_1;
+    font-size: 3vw;
+    font-weight: 1000;
+    margin-left: 28%;
+    margin-top: 5%;
+  }
+  &__onequestion {
+    margin-top: 0%;
+    color: $color_1;
+    width: 80%;
+    margin-left: 10%;
+    background-color: $background-color_6;
+    padding: 1%;
+    &__firstquestion {
+      font-size: 2vw;
+      &__plusbutton {
+        margin-left: 75%;
+        background-color: $background-color_7;
         color: $color_1;
-        font-size: 3vw;
-        font-weight: 1000;
-        margin-left: 28%;
-        margin-top: 5%;
+        border: none;
       }
-      &__onequestion {
-        margin-top: 0%;
-        color: $color_1;
-        width: 80%;
-        margin-left: 10%;
-        background-color: $background-color_6;
-        padding: 1%;
-        &__firstquestion {
-            font-size: 2vw;
-            &__plusbutton {
-                margin-left: 75%;
-                background-color: $background-color_7;
-                color: $color_1;
-                border: none;
-              }
-          }
-      }
-      
+    }
+  }
 }
-
-.formtotal{
+.formfirst {
+  background-color: aliceblue;
+  height: 700px;
+  &__formtotal {
+    background-color: aliceblue;
+    // height:700px;
     &__signupfields {
-        width: 400px;
-        margin-top: 2%;
-        margin-left: 35%;
-        height: 450px;
+      width: 400px;
+      margin-top: 2%;
+      margin-left: 35%;
+      height: 450px;
+    }
+    &__navbardiv {
+      display: flex;
+      &__logoimg {
+        height: 100px;
+        width: 140px;
+        margin-left: 5%;
       }
-      
+      &__English {
+        display: flex;
+        margin-left: 60%;
+        border-radius: 5px;
+        margin-right: 2%;
+        color: $color_1;
+        height: 7%;
+        width: 9%;
+        gap: 5%;
+        margin-top: 2.5%;
+        font-size: 1.1vw;
+        background-color: $background-color_2;
+        border: 1px solid white;
+        &__text {
+          margin-top: 1.5%;
+        }
+      }
+      &__signinbutton1 {
+        border-radius: 5px;
+        color: $color_1;
+        background-color: $background-color_3;
+        border: none;
+        font-size: 1vw;
+        height: 50px;
+        width: 6%;
+        margin-top: 2%;
+        font-weight: 600;
+      }
+    }
+  }
 }
 
-
+.English {
+  margin-left: 50%;
+  border-radius: 5px;
+  margin-right: 2%;
+  color: $color_1;
+  margin-top: 0%;
+  font-size: 1vw;
+  background-color: $background-color_2;
+  border: 1px solid white;
+}
 
 .signup_footer {
   margin-top: 0%;
@@ -180,38 +267,45 @@ body {
     font-size: smaller;
     padding-top: 5%;
   }
-  &__second_div{
-    display:flex;
-    gap:40px;
-    margin-top:2%;
-    margin-left:10%;
+  &__second_div {
+    display: flex;
+    gap: 40px;
+    margin-top: 2%;
+    margin-left: 10%;
     font-size: smaller;
-    &__faq{
-        text-decoration: none;
-        color:grey;
+    &__faq {
+      text-decoration: none;
+      color: grey;
     }
   }
-  &__third_div{
-    display:flex;
-    display:flex;
-    gap:40px;
-    margin-top:2%;
-    margin-left:10%;
+  &__third_div {
+    display: flex;
+    display: flex;
+    gap: 40px;
+    margin-top: 2%;
+    margin-left: 10%;
     font-size: smaller;
-    &__signin_cookie{
-        text-decoration: none;
-        color:grey;
+    &__signin_cookie {
+      text-decoration: none;
+      color: grey;
     }
   }
   &__English {
+    display: flex;
     margin-left: 10%;
     border-radius: 5px;
     margin-right: 2%;
-    margin-top: 2%;
     color: $color_1;
+    height: 5%;
+    width: 9%;
+    gap: 5%;
+    margin-top: 2.5%;
     font-size: 1.1vw;
     background-color: $background-color_2;
     border: 1px solid white;
+    &__text {
+      margin-top: 1.5%;
+    }
   }
   &__NetflixIndia {
     margin-left: 10%;

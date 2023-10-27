@@ -9,19 +9,19 @@ function Home_page({ name, watchlist, addToWatchlist }) {
       <Header yes={name} />
       <MovieBanner />
       <p></p>
-      <p className="categories">Recently Added</p>
+      <h2 className="categories">Recently Added</h2>
       <Cards
         movies={name}
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
       />
-      <p className="categories">Continue Watching</p>
+      <h2 className="categories">Continue Watching</h2>
       <Cards
         movies={name}
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
       />
-      <p className="categories">Everyone's Watching</p>
+      <h2 className="categories">Everyone's Watching</h2>
 
       <Cards
         movies={name}

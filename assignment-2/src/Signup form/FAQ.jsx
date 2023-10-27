@@ -36,14 +36,14 @@ function Faq() {
       <p></p>
       <div className="Faqtotal__seperate"></div>
       <Faq2 />
-      <p className="navtotal__Signupfirstpartdiv__Readytowatch">
+      <p className="navtotal1__Signupfirstpartdiv__Readytowatch">
         Ready to watch? Enter your email to create or restart your membership.
       </p>
       <input
-        className="navtotal__Signupfirstpartdiv__enteremail"
+        className="navtotal1__Signupfirstpartdiv__enteremail"
         placeholder="Email Address"
       ></input>
-      <button className="navtotal__Signupfirstpartdiv__getstarted">
+      <button className="Faqtotal__seperate__getstarted2">
         Get Started <ChevronRightIcon />
       </button>
       <p></p>

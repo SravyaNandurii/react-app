@@ -8,29 +8,33 @@ import { useNavigate } from "react-router-dom";
 function TotalSignup_form() {
   const navigate = useNavigate();
   return (
-    <div className="formtotal">
+    <div className="formfirst">
+    <div className="formfirst__formtotal">
+      <div className="formfirst__formtotal__navbardiv">
       <img
         src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
         alt="Netflix"
-        className="navtotal__Signupfirstpartdiv__logoimg"
+        className="formfirst__formtotal__navbardiv__logoimg"
       />
-      <button className="navtotal__Signupfirstpartdiv__English">
+      <button className="formfirst__formtotal__navbardiv__English">
         <TranslateIcon />
-        <a></a>English <a></a>
+        <a className="formfirst__formtotal__navbardiv__English__text">English </a>
         <ArrowDropDownIcon />
       </button>
       <button
-        className="navtotal__Signupfirstpartdiv__signinbutton1"
+        className="formfirst__formtotal__navbardiv__signinbutton1"
         onClick={() => navigate("/")}
       >
         Sign In
       </button>
-      <div className="formtotal__signupfields">
+      </div>
+      <div className="formfirst__formtotal__signupfields">
         <h2>Create a password to start your membership</h2>
         <p>Just a few more steps and you're done! We hate paperwork, too.</p>
         <br />
         <SignUpForm />
       </div>
+    </div>
     </div>
   );
 }

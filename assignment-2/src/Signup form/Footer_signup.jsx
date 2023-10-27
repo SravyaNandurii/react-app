@@ -34,7 +34,7 @@ function Footerup() {
           Coorperate Information
         </a>
       </div>
-      <button className='signup_footer__English'><TranslateIcon /><a></a>English <a></a><ArrowDropDownIcon /></button>
+      <button className='signup_footer__English'><TranslateIcon /><a className='signup_footer__English__text'>English </a><ArrowDropDownIcon /></button>
       <p className="signup_footer__NetflixIndia">Netflix India</p>
     </div>
   );

@@ -7,42 +7,45 @@ import { useNavigate } from "react-router-dom";
 function Signup_nav() {
   const navigate = useNavigate();
   return (
-    <div className="navtotal">
-      <div className="navtotal__Signupfirstpartdiv">
+    <div className="navtotal1">
+      <div className="navtotal1__Signupfirstpartdiv">
+      <div className="navtotal1__Signupfirstpartdiv__navbar">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
           alt="Netflix"
-          className="navtotal__Signupfirstpartdiv__logoimg"
+          className="navtotal1__Signupfirstpartdiv__navbar__logoimg"
         />
-        <button className="navtotal__Signupfirstpartdiv__English">
+        <button className="navtotal1__Signupfirstpartdiv__navbar__English">
           <TranslateIcon />
-          <a></a>English <a></a>
+          <a className="navtotal1__Signupfirstpartdiv__navbar__English__text">English</a>
           <ArrowDropDownIcon />
         </button>
         <button
-          className="navtotal__Signupfirstpartdiv__signinbutton1"
+          className="navtotal1__Signupfirstpartdiv__navbar__signinbutton1"
           onClick={() => navigate("/")}
         >
           Sign In
         </button>
-        <h1 className="navtotal__Signupfirstpartdiv__unlimited">
+        </div>
+        <h1 className="navtotal1__Signupfirstpartdiv__unlimited">
           Unlimited movies, Tv shows and more
         </h1>
-        <h3 className="navtotal__Signupfirstpartdiv__Watchanywhere">
+        <h3 className="navtotal1__Signupfirstpartdiv__Watchanywhere">
           Watch Anywhere. Cancel anytime
         </h3>
-        <p className="navtotal__Signupfirstpartdiv__Readytowatch">
+        <p className="navtotal1__Signupfirstpartdiv__Readytowatch">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
         <input
-          className="navtotal__Signupfirstpartdiv__enteremail"
+          className="navtotal1__Signupfirstpartdiv__enteremail"
           placeholder="Email Address"
-        ></input>
+        ></input> 
         <button
-          className="navtotal__Signupfirstpartdiv__getstarted"
+          className="navtotal1__Signupfirstpartdiv__getstarted"
           onClick={() => navigate("/form")}
         >
-          Get Started <ChevronRightIcon />
+          <a className="navtotal1__Signupfirstpartdiv__getstarted__writeup">Get Started</a>
+          <a><ChevronRightIcon  className="navtotal1__Signupfirstpartdiv__getstarted__arrow"/></a>
         </button>
       </div>
 
