@@ -3,8 +3,7 @@ import Map from "./Mapforcards";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Usercontext } from "../../App";
-const Cards = ({ setAllMovies, watchlist, addToWatchlist }) => {
-  const movies=useContext(Usercontext)
+const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
   const [startIndex, setStartIndex] = useState(0);
   const handlePrev = () => {
     setStartIndex((prevIndex) => Math.max(0, prevIndex - 6));

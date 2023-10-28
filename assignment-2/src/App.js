@@ -23,7 +23,7 @@ const App = () => {
   }, [searchValue]);
 
   useEffect(() => {
-    fetch("https://mocki.io/v1/f5ca167b-8a95-47bb-90dd-287bc4751c2c")
+    fetch("https://mocki.io/v1/429942b7-caa8-4734-a0e2-ff3dcf2d0e7f")
       .then((response) => response.json())
       .then((data) => setMovies(data))
       .catch((error) => console.error("Error fetching data", error));
