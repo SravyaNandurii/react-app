@@ -3,6 +3,7 @@ import Header from "../header/header";
 import { Usercontext } from "../../App";
 import "./characters.scss";
 import Playbutton from "../Playbutton/playbutton";
+import { Box } from "@mui/material";
 
 function Charcters() {
   const movies = useContext(Usercontext);
@@ -19,11 +20,11 @@ function Charcters() {
   };
 
   return (
-    <div className="total1">
+    <Box className="total1">
       <Header />
-      <div className="total1__characters">
+      <Box className="total1__characters">
         {movies.map((character) => (
-          <div
+          <Box
             key={character.id}
             className="total1__characters__single"
             onClick={() => openModal(character)}
@@ -33,13 +34,13 @@ function Charcters() {
               className="total1__characters__single__img"
               alt={`Character ${character.title}`}
             />
-          </div>
+          </Box>
         ))}
-      </div>
+      </Box>
 
       {isModalOpen && selectedCharacter && (
-        <div className="total1__modal">
-          <div className="total1__modal__content">
+        <Box className="total1__modal">
+          <Box className="total1__modal__content">
             <span
               className="total1__modal__content__close"
               onClick={closeModal}
@@ -56,10 +57,10 @@ function Charcters() {
             <p
               className="total1__modal__content__description1"
             >{selectedCharacter.description}</p>
-          </div>
-        </div>
+          </Box>
+        </Box>
       )}
-    </div>
+    </Box>
   );
 }
 

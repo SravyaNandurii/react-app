@@ -10,43 +10,55 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-const Card = ({ r, watchlist, addToWatchlist }) => {
+import { Box } from "@mui/material";
+
+const Card = ({ r, watchlist, addToWatchlist ,removeFromWatchlist}) => {
   const [isHovered, setIsHovered] = useState(false);
   const [ishovered2, setishovered2] = useState(false);
   const [disliked, setdisliked] = useState(false);
   const [isliked1, setisliked1] = useState(false);
   const [isliked2, setisliked2] = useState(false);
+  const [likeIcon, setLikeIcon] = useState(<ThumbUpOffAltOutlinedIcon />);
   const isliked = watchlist.some((movie) => movie.id === r.id);
   const handleAddToWatchlist = () => {
-    addToWatchlist(r);
+    if (isliked==true){
+      removeFromWatchlist(r);
+    }
+    else{
+      addToWatchlist(r);
+    }
+    
 
   };
   const handledisliked = () => {
     setdisliked(!disliked);
     setisliked1(false);
     setisliked2(false);
+    setLikeIcon(disliked ? <ThumbUpOffAltOutlinedIcon /> : <ThumbDownAltIcon />);
   };
   const handleisliked1 = () => {
     setdisliked(false);
     setisliked1(!isliked1);
     setisliked2(false);
+    setLikeIcon(isliked1 ? <ThumbUpOffAltOutlinedIcon /> : <ThumbUpIcon />);
   };
   const handleisliked2 = () => {
     setdisliked(false);
     setisliked1(false);
     setisliked2(!isliked2);
+    setLikeIcon(isliked2 ? <FavoriteBorderIcon /> : <FavoriteIcon />);
   };
   return (
-    <div
+    <Box
       className={`card-container`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="indcard">
+      <Box className="indcard">
         <img src={r.poster} alt="nooo" className="movie_img" />
-      </div>
+      </Box>
       {isHovered ? (
-        <div className="hover-content">
+        <Box className="hover-content">
           <button className="card_playbutton">
             <PlayArrowIcon />
           </button>
@@ -62,9 +74,9 @@ const Card = ({ r, watchlist, addToWatchlist }) => {
             onMouseEnter={() => setishovered2(true)}
             onMouseLeave={() => setishovered2(false)}
           >
-            <ThumbUpOffAltOutlinedIcon />
+          {likeIcon}
             {ishovered2 ? (
-              <div className="card_like__moreoptions">
+              <Box className="card_like__moreoptions">
                 {disliked ? (
                   <ThumbDownAltIcon onClick={handledisliked} />
                 ) : (
@@ -80,7 +92,7 @@ const Card = ({ r, watchlist, addToWatchlist }) => {
                 ) : (
                   <FavoriteBorderIcon onClick={handleisliked2} />
                 )}
-              </div>
+              </Box>
             ) : null}
           </button>
           <button className="card_dropdown">
@@ -94,9 +106,9 @@ const Card = ({ r, watchlist, addToWatchlist }) => {
             <li className="card_UA">{r.resolution}</li>
             <li className="rating">U</li>
           </ul>
-        </div>
+        </Box>
       ) : null}
-    </div>
+    </Box>
   );
 };
 

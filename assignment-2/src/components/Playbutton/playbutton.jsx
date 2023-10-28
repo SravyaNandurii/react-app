@@ -6,7 +6,7 @@ const Playbutton=(()=>{
     return (
         <div className="Playbutton">
         <button className="Playbutton_play">
-            <PlayArrowIcon cclassName="Playbutton_play__icon" />
+            <PlayArrowIcon className="Playbutton_play__icon" />
             <span>Play</span>
         </button>
         <button className="Playbutton_moreinfo">

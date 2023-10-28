@@ -3,7 +3,8 @@ import Map from "./Mapforcards";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { Usercontext } from "../../App";
-const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
+import { Box } from "@mui/material";
+const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist,removeFromWatchlist }) => {
   const [startIndex, setStartIndex] = useState(0);
   const handlePrev = () => {
     setStartIndex((prevIndex) => Math.max(0, prevIndex - 6));
@@ -14,7 +15,7 @@ const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
   };
 
   return (
-    <div className="carousel-container">
+    <Box className="carousel-container">
       <ArrowBackIosIcon className="sliderArrow left" onClick={handlePrev} />
       <ArrowForwardIosIcon className="sliderArrow right" onClick={handleNext} />
       <Map
@@ -22,8 +23,9 @@ const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist }) => {
         setAllMovies={setAllMovies}
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
+        removeFromWatchlist={removeFromWatchlist}
       />
-    </div>
+    </Box>
   );
 };
 

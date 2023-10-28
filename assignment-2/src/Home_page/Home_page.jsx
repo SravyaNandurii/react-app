@@ -5,13 +5,12 @@ import MovieBanner from "../components/MovieBanner/MovieBanner";
 import Footer from "../components/footer/footer";
 import { useNavigate } from "react-router-dom";
 import { Usercontext } from "../App";
-function Home_page({ name, watchlist, addToWatchlist }) {
+function Home_page({ name, watchlist, addToWatchlist, removeFromWatchlist }) {
   const  movies  = useContext(Usercontext)
    console.log(movies)
-  // Filter movies based on different criteria
   const recentlyAdded = movies.filter((movie) => movie.type === "recently added");
   const Action = movies.filter((movie) => movie.type === "Action");
-  const everyonesWatching = movies.filter((movie) => movie.type === "everyones_watching");
+  const everyonesWatching = movies
   console.log("recently added",recentlyAdded)
   return (
     <div className="body">
@@ -24,6 +23,7 @@ function Home_page({ name, watchlist, addToWatchlist }) {
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
         movies={recentlyAdded}
+        removeFromWatchlist={removeFromWatchlist}
       />
 
       <h3 className="categories">Action</h3>
@@ -31,14 +31,16 @@ function Home_page({ name, watchlist, addToWatchlist }) {
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
         movies={Action}
+        removeFromWatchlist={removeFromWatchlist}
       />
 
-      {/* <h2 className="categories">Everyone's Watching</h2>
+      <h3 className="categories">Everyone's Watching</h3>
       <Cards
         watchlist={watchlist}
         addToWatchlist={addToWatchlist}
         movies={everyonesWatching}
-      /> */}
+        removeFromWatchlist={removeFromWatchlist}
+      />
 
       <Footer />
     </div>

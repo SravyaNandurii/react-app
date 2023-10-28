@@ -51,7 +51,7 @@ const App = () => {
 
   const router = createBrowserRouter([
     { path: "/", element: <SignInPage /> },
-    { path: "/home", element: <Home_page name={movies} watchlist={watchlist}addToWatchlist={addToWatchlist} /> },
+    { path: "/home", element: <Home_page name={movies} watchlist={watchlist}addToWatchlist={addToWatchlist} removeFromWatchlist={removeFromWatchlist} /> },
     { path: "/search", element: <Search setSearchValue={setSearchValue} movielist={movies} entered={searchValue} /> },
     { path: "/mylist", element: <View watchlist1={watchlist} removeFromWatchlist={removeFromWatchlist} /> },
     { path: "/signup", element: <SignupPage /> },

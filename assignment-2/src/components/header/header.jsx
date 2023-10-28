@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { useNavigate } from "react-router-dom";
+import { Box } from "@mui/material";
 function Header({ setSearchValue }) {
   const onInputChange = (e) => {
     e.preventDefault();
@@ -29,13 +30,13 @@ function Header({ setSearchValue }) {
   };
   return (
     <header className={scroll ? "header" : "header_active"}>
-      <div className="header_logo">
+      <Box className="header_logo">
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
           alt="Netflix Logo"
         />
-      </div>
-      <div className="header_links">
+      </Box>
+      <Box className="header_links">
         <a href="/home">Home</a>
         <a href="/characters">Characters</a>
         <a href="/movies">Movies</a>
@@ -43,8 +44,8 @@ function Header({ setSearchValue }) {
         <a href="/mylist" onClick={() => navigate("/mylist")}>
           My List
         </a>
-      </div>
-      <div
+      </Box>
+      <Box
         className={`header_icons ${
           isSearchOpen ? "search-open" : "search-open"
         }`}
@@ -56,32 +57,32 @@ function Header({ setSearchValue }) {
             onChange={onInputChange}
           />
         ) : (
-          <div>
+          <Box>
             <SearchIcon onClick={handleSearchIconClick} />
-          </div>
+          </Box>
         )}
-      </div>
-      <div className="header_onlyicons">
-        <div className="header_notification">
+      </Box>
+      <Box className="header_onlyicons">
+        <Box className="header_notification">
           <NotificationsNoneIcon />
-        </div>
-        <div className="header_profile">
+        </Box>
+        <Box className="header_profile">
           <img
             src="https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg"
             alt="User Profile"
           />
-        </div>
+        </Box>
 
-        <div className="header_profile_dropdown">
+        <Box className="header_profile_dropdown">
           <ArrowDropDownIcon />
-          <div className="Options">
-            <span className="span">Settings</span>
-            <span className="span" onClick={() => navigate("/")}>
+          <Box className="Options">
+            <Box component="span" className="span">Settings</Box>
+            <Box component="span" className="span" onClick={() => navigate("/")}>
               Logout
-            </span>
-          </div>
-        </div>
-      </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
     </header>
   );
 }

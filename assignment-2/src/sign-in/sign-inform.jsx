@@ -2,6 +2,7 @@ import React from 'react';
 import '../sign-in/SignInPage.scss'
 import { useState} from 'react';
 import { useNavigate } from "react-router-dom";
+import { Typography,Box } from '@mui/material';
   
   const SignInForm = () => {
     console.log(localStorage)
@@ -35,12 +36,12 @@ import { useNavigate } from "react-router-dom";
         }
         
   return(
-  <div>
-      <div className='Signinnav'>
+  <Box>
+      <Box className='Signinnav'>
         <img src='https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg' alt="noo" className='Signinnav__Sigin_logos' />
-      </div>
-      <div className='signin_cont'>
-        <p></p>
+      </Box>
+      <Box className='signin_cont'>
+        <Typography></Typography>
           <h2>Sign In</h2>
           <input className='signin_cont__signin_email'placeholder='Email or Phone Number' value={signInData.email}
           name="email" type="email"
@@ -50,21 +51,21 @@ import { useNavigate } from "react-router-dom";
           onChange={handleSignInInput}name="password"
           type="password"  required></input>
           {/* <p>{errors.password}</p> */}
-          <p className='signin_cont__Validation'>{errors}</p>
+          <Typography className='signin_cont__Validation'>{errors}</Typography>
           <button className='signin_cont__sigin_button' onClick={handleSignIn}>Sign In</button>
           
-          <div className='signin_cont__rememberme'>
-          <input type="checkbox"></input>
+          <Box className='signin_cont__rememberme'>
+          <input type="checkbox" className='signin_cont__rememberme__checkbox'></input>
           <label>Remember me</label>
           <a href="#" className='signin_cont__rememberme__help'>Need help?</a>
-          </div>
-        <div className='signin_cont__signin_new'>
+          </Box>
+        <Box className='signin_cont__signin_new'>
         <p className='signin_cont__signin_new__new'>New to Netflix?</p>
           <a href="#" className='signin_cont__signin_new__signup' onClick={()=>navigate('/signup')}> Signup Now</a>
-          <span className='signin_cont__signin_new__description'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn More</a></span>
-        </div>
-      </div>
-      </div>
+          <Box component="span" className='signin_cont__signin_new__description'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn More</a></Box>
+        </Box>
+      </Box>
+      </Box>
       );
   }
 

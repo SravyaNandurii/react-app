@@ -29,6 +29,14 @@
   height: 5px;
   z-index: 1;
 }
+@media (max-width: 768px) {
+  .header {
+    display: none;
+  }
+  .header_active {
+    display: none;
+  }
+}
 .header_logo img {
   width: 100px;
 }
@@ -258,20 +266,17 @@
 }
 .sliderArrow {
   width: 50px;
-  height: 100%;
   background-color: transparent;
   color: white;
   position: absolute;
-  z-index: 99;
-  margin: auto;
   cursor: pointer;
   &.left {
     left: 0;
-    margin-top: 100px;
+    margin-top: 7vw;
   }
   &.right {
     right: 0;
-    margin-top: 100px;
+    margin-top: 7vw;
   }
 }
 .container1 {
@@ -323,7 +328,7 @@
     border-radius: 50%;
     margin-right: 3%;
     border: none;
-    background-color: rgb(39, 37, 37);
+    background-color: transparent;
     color:white;
   }
 }
@@ -357,7 +362,7 @@
     border-radius: 50%;
     margin-right: -26%;
     border: none;
-    background-color: rgb(39, 37, 37);
+    background-color: transparent;
     position: relative;
     color:white;
   }
@@ -368,7 +373,7 @@
     border-radius: 50%;
     margin-left: 56%;
     border: none;
-    background-color: rgb(39, 37, 37);
+    background-color:transparent;
     color:white;
   }
 }

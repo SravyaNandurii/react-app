@@ -38,7 +38,7 @@ function Signup_nav() {
         </p>
         <input
           className="navtotal1__Signupfirstpartdiv__enteremail"
-          placeholder="Email Address"
+          placeholder="Email Address" 
         ></input> 
         <button
           className="navtotal1__Signupfirstpartdiv__getstarted"
