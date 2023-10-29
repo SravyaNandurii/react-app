@@ -76,8 +76,14 @@ function Header({ setSearchValue }) {
         <Box className="header_profile_dropdown">
           <ArrowDropDownIcon />
           <Box className="Options">
-            <Box component="span" className="span">Settings</Box>
-            <Box component="span" className="span" onClick={() => navigate("/")}>
+            <Box component="span" className="span">
+              Settings
+            </Box>
+            <Box
+              component="span"
+              className="span"
+              onClick={() => navigate("/")}
+            >
               Logout
             </Box>
           </Box>

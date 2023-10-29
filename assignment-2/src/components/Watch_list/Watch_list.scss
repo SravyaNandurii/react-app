@@ -47,7 +47,7 @@ $background-color_2: rgb(39, 37, 37);
     }
     .total__card-container1__full__hover-content1__card_playbutton1 {
       border-radius: 50%;
-    //   margin-bottom: 10%;
+      //   margin-bottom: 10%;
       margin-right: 9%;
       padding-top: 2%;
 
@@ -80,12 +80,12 @@ $background-color_2: rgb(39, 37, 37);
       margin-right: 9%;
       padding-top: 2%;
       border: none;
-	  &:hover{
-		.total__card-container1__full__hover-content1__card_like1__moreoptions{
-		margin-top:2%;
-		}
-	  }
-	}
+      &:hover {
+        .total__card-container1__full__hover-content1__card_like1__moreoptions {
+          margin-top: 2%;
+        }
+      }
+    }
     .total__card-container1__full__hover-content1__card_dropdown1 {
       border-radius: 50%;
       margin-left: 25%;

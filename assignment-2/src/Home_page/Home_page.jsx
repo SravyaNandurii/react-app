@@ -3,17 +3,19 @@ import Header from "../components/header/header";
 import Cards from "../components/cards/cards";
 import MovieBanner from "../components/MovieBanner/MovieBanner";
 import Footer from "../components/footer/footer";
-import { useNavigate } from "react-router-dom";
 import { Usercontext } from "../App";
+import { Box } from "@mui/material";
 function Home_page({ name, watchlist, addToWatchlist, removeFromWatchlist }) {
-  const  movies  = useContext(Usercontext)
-   console.log(movies)
-  const recentlyAdded = movies.filter((movie) => movie.type === "recently added");
+  const movies = useContext(Usercontext);
+  console.log(movies);
+  const recentlyAdded = movies.filter(
+    (movie) => movie.type === "recently added"
+  );
   const Action = movies.filter((movie) => movie.type === "Action");
-  const everyonesWatching = movies
-  console.log("recently added",recentlyAdded)
+  const everyonesWatching = movies;
+  console.log("recently added", recentlyAdded);
   return (
-    <div className="body">
+    <Box className="body">
       <Header yes={name} />
       <MovieBanner />
       <p></p>
@@ -43,7 +45,7 @@ function Home_page({ name, watchlist, addToWatchlist, removeFromWatchlist }) {
       />
 
       <Footer />
-    </div>
+    </Box>
   );
 }
 

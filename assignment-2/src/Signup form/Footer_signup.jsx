@@ -1,14 +1,15 @@
 import React from "react";
-import '../Signup form/signup.scss';
-import TranslateIcon from '@mui/icons-material/Translate';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import "../Signup form/signup.scss";
+import TranslateIcon from "@mui/icons-material/Translate";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { Box } from "@mui/material";
 function Footerup() {
   return (
-    <div className="signup_footer">
-      <div className="signup_footer__signup_question">
+    <Box className="signup_footer">
+      <Box className="signup_footer__signup_question">
         <a>Questions? Call 8639086987</a>
-      </div>
-      <div className="signup_footer__second_div">
+      </Box>
+      <Box className="signup_footer__second_div">
         <a href="#" className="signup_footer__second_div__faq">
           FAQ?
         </a>
@@ -24,8 +25,8 @@ function Footerup() {
         <a href="#" className="signup_footer__second_div__faq">
           Privacy
         </a>
-      </div>
-      <div className="signup_footer__third_div">
+      </Box>
+      <Box className="signup_footer__third_div">
         <a href="#" className="signup_footer__third_div__signin_cookie">
           Cookie Preferences
         </a>
@@ -33,10 +34,14 @@ function Footerup() {
         <a href="#" className="signup_footer__third_div__signin_cookie">
           Coorperate Information
         </a>
-      </div>
-      <button className='signup_footer__English'><TranslateIcon /><a className='signup_footer__English__text'>English </a><ArrowDropDownIcon /></button>
+      </Box>
+      <button className="signup_footer__English">
+        <TranslateIcon />
+        <a className="signup_footer__English__text">English </a>
+        <ArrowDropDownIcon />
+      </button>
       <p className="signup_footer__NetflixIndia">Netflix India</p>
-    </div>
+    </Box>
   );
 }
 export default Footerup;

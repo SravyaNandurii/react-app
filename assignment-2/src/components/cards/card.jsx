@@ -12,7 +12,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import { Box } from "@mui/material";
 
-const Card = ({ r, watchlist, addToWatchlist ,removeFromWatchlist}) => {
+const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [ishovered2, setishovered2] = useState(false);
   const [disliked, setdisliked] = useState(false);
@@ -21,20 +21,19 @@ const Card = ({ r, watchlist, addToWatchlist ,removeFromWatchlist}) => {
   const [likeIcon, setLikeIcon] = useState(<ThumbUpOffAltOutlinedIcon />);
   const isliked = watchlist.some((movie) => movie.id === r.id);
   const handleAddToWatchlist = () => {
-    if (isliked==true){
+    if (isliked == true) {
       removeFromWatchlist(r);
-    }
-    else{
+    } else {
       addToWatchlist(r);
     }
-    
-
   };
   const handledisliked = () => {
     setdisliked(!disliked);
     setisliked1(false);
     setisliked2(false);
-    setLikeIcon(disliked ? <ThumbUpOffAltOutlinedIcon /> : <ThumbDownAltIcon />);
+    setLikeIcon(
+      disliked ? <ThumbUpOffAltOutlinedIcon /> : <ThumbDownAltIcon />
+    );
   };
   const handleisliked1 = () => {
     setdisliked(false);
@@ -74,7 +73,7 @@ const Card = ({ r, watchlist, addToWatchlist ,removeFromWatchlist}) => {
             onMouseEnter={() => setishovered2(true)}
             onMouseLeave={() => setishovered2(false)}
           >
-          {likeIcon}
+            {likeIcon}
             {ishovered2 ? (
               <Box className="card_like__moreoptions">
                 {disliked ? (

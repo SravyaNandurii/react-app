@@ -10,7 +10,6 @@ import Charcters from "./components/characters/characters";
 export const Usercontext = createContext();
 
 const App = () => {
-
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [watchlist, setWatchlist] = useState(() => {
@@ -43,7 +42,9 @@ const App = () => {
 
   const removeFromWatchlist = (movieToRemove) => {
     setWatchlist((prevWatchlist) => {
-      const updatedWatchlist = prevWatchlist.filter((movie) => movie.id !== movieToRemove.id);
+      const updatedWatchlist = prevWatchlist.filter(
+        (movie) => movie.id !== movieToRemove.id
+      );
       localStorage.setItem("watchlist", JSON.stringify(updatedWatchlist));
       return updatedWatchlist;
     });
@@ -51,12 +52,39 @@ const App = () => {
 
   const router = createBrowserRouter([
     { path: "/", element: <SignInPage /> },
-    { path: "/home", element: <Home_page name={movies} watchlist={watchlist}addToWatchlist={addToWatchlist} removeFromWatchlist={removeFromWatchlist} /> },
-    { path: "/search", element: <Search setSearchValue={setSearchValue} movielist={movies} entered={searchValue} /> },
-    { path: "/mylist", element: <View watchlist1={watchlist} removeFromWatchlist={removeFromWatchlist} /> },
+    {
+      path: "/home",
+      element: (
+        <Home_page
+          name={movies}
+          watchlist={watchlist}
+          addToWatchlist={addToWatchlist}
+          removeFromWatchlist={removeFromWatchlist}
+        />
+      ),
+    },
+    {
+      path: "/search",
+      element: (
+        <Search
+          setSearchValue={setSearchValue}
+          movielist={movies}
+          entered={searchValue}
+        />
+      ),
+    },
+    {
+      path: "/mylist",
+      element: (
+        <View
+          watchlist1={watchlist}
+          removeFromWatchlist={removeFromWatchlist}
+        />
+      ),
+    },
     { path: "/signup", element: <SignupPage /> },
     { path: "/form", element: <TotalSignup_form /> },
-    {path :"/characters",element:<Charcters />}
+    { path: "/characters", element: <Charcters /> },
   ]);
 
   return (

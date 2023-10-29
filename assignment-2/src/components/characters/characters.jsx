@@ -53,10 +53,13 @@ function Charcters() {
               className="total1__modal__content__img2"
             />
             <Playbutton />
-            <h2 className="total1__modal__content__title"> {selectedCharacter.title}</h2>
-            <p
-              className="total1__modal__content__description1"
-            >{selectedCharacter.description}</p>
+            <h2 className="total1__modal__content__title">
+              {" "}
+              {selectedCharacter.title}
+            </h2>
+            <p className="total1__modal__content__description1">
+              {selectedCharacter.description}
+            </p>
           </Box>
         </Box>
       )}

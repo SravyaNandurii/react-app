@@ -1,10 +1,15 @@
-import React, { useState,useContext } from "react";
+import React, { useState } from "react";
 import Map from "./Mapforcards";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { Usercontext } from "../../App";
 import { Box } from "@mui/material";
-const Cards = ({ movies, setAllMovies, watchlist, addToWatchlist,removeFromWatchlist }) => {
+const Cards = ({
+  movies,
+  setAllMovies,
+  watchlist,
+  addToWatchlist,
+  removeFromWatchlist,
+}) => {
   const [startIndex, setStartIndex] = useState(0);
   const handlePrev = () => {
     setStartIndex((prevIndex) => Math.max(0, prevIndex - 6));

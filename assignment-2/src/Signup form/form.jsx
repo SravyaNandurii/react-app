@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { Button, TextField, Typography } from '@mui/material';
-import './signup.scss';
+import React, { useState } from "react";
+import { Button, TextField, Typography } from "@mui/material";
+import "./signup.scss";
 
 const SignUpForm = () => {
   const [userRegistration, setUserRegistration] = useState({
-    email: '',
-    password: '',
-    confirmPassword: '',
+    email: "",
+    password: "",
+    confirmPassword: "",
   });
   const [formErrors, setFormErrors] = useState({});
 
@@ -22,25 +22,25 @@ const SignUpForm = () => {
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 
     if (!values.email) {
-      errors.email = 'Email id is required';
+      errors.email = "Email id is required";
     } else if (!emailRegex.test(values.email)) {
       errors.email =
-        'Make sure your email address contains @, . and does not contain any white spaces';
+        "Make sure your email address contains @, . and does not contain any white spaces";
     } else {
       if (existingUsers.some((user) => user.email === values.email)) {
-        errors.email = 'Email address is already in use';
+        errors.email = "Email address is already in use";
       } else {
         if (!values.password) {
-          errors.password = 'Password is required';
+          errors.password = "Password is required";
         } else if (!PWD_REGEX.test(values.password)) {
           errors.password =
-            'To ensure maximum security make sure that the password contains an uppercase, lowercase, number, and a special character';
+            "To ensure maximum security make sure that the password contains an uppercase, lowercase, number, and a special character";
         }
 
         if (!values.confirmPassword) {
-          errors.confirmPassword = 'Please confirm the password';
+          errors.confirmPassword = "Please confirm the password";
         } else if (values.password !== values.confirmPassword) {
-          errors.confirmPassword = 'Passwords do not match';
+          errors.confirmPassword = "Passwords do not match";
         }
       }
     }
@@ -50,18 +50,24 @@ const SignUpForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const existingUsers = JSON.parse(sessionStorage.getItem('users')) || [];
+    const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
     const errors = validate(userRegistration, existingUsers);
     setFormErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      const newUser = { ...userRegistration, id: new Date().getTime().toString() };
-      sessionStorage.setItem('users', JSON.stringify([...existingUsers, newUser]));
-      alert("Registration Successful")
+      const newUser = {
+        ...userRegistration,
+        id: new Date().getTime().toString(),
+      };
+      sessionStorage.setItem(
+        "users",
+        JSON.stringify([...existingUsers, newUser])
+      );
+      alert("Registration Successful");
       setUserRegistration({
-        email: '',
-        password: '',
-        confirmPassword: '',
+        email: "",
+        password: "",
+        confirmPassword: "",
       });
     }
   };
@@ -110,13 +116,18 @@ const SignUpForm = () => {
         margin="normal"
         fullWidth
         color="error"
-        
       />
       <Typography variant="body2" color="error" className="Validationmessage">
         {formErrors.confirmPassword}
       </Typography>
 
-      <Button type="submit" className="submit" variant="contained" color="error" fullWidth>
+      <Button
+        type="submit"
+        className="submit"
+        variant="contained"
+        color="error"
+        fullWidth
+      >
         Sign Up
       </Button>
     </form>

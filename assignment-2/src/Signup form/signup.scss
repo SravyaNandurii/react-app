@@ -16,9 +16,9 @@ body {
 
 .navtotal1 {
   height: 650px;
-  
-  @media screen and (max-width:1024px){
-    width:108vw;
+
+  @media screen and (max-width: 1024px) {
+    width: 108vw;
   }
   background-image: url("https://assets.nflxext.com/ffe/siteui/vlv3/a73c4363-1dcd-4719-b3b1-3725418fd91d/fe1147dd-78be-44aa-a0e5-2d2994305a13/IN-en-20231016-popsignuptwoweeks-perspective_alpha_website_large.jpg");
   &__Signupfirstpartdiv {
@@ -90,7 +90,7 @@ body {
       background: rgba(0, 0, 0, 0.6);
       border: none;
       padding-left: 1%;
-      color:white;
+      color: white;
       border: 1px solid white;
     }
     &__getstarted {
@@ -111,7 +111,7 @@ body {
       &__arrow {
         // border:2px solid rgb(125, 187, 18);
         font-size: large;
-        @media screen and (max-width:1024px){
+        @media screen and (max-width: 1024px) {
           display: none;
         }
       }
@@ -139,9 +139,9 @@ body {
         height: 40vw;
         margin-left: 14%;
         margin-top: -8%;
-         @media screen and (max-width:768px){
+        @media screen and (max-width: 768px) {
           display: none;
-         }
+        }
       }
     }
 
@@ -166,7 +166,7 @@ body {
   &__seperate {
     height: 10%;
     background-color: $background-color_1;
-    &__getstarted2{
+    &__getstarted2 {
       margin-left: 60%;
       height: 8%;
       align-items: center;
@@ -212,11 +212,11 @@ body {
     background-color: aliceblue;
     // height:700px;
     // width:101vw;
-    @media screen and (max-width:465px){
+    @media screen and (max-width: 465px) {
       height: 301vw;
-      width:401vw;
+      width: 401vw;
     }
-    @media screen and (max-width:768px){
+    @media screen and (max-width: 768px) {
       height: 501vw;
     }
     &__signupfields {

@@ -1,12 +1,13 @@
 import React from "react";
 import "./SignInPage.scss";
+import { Box } from "@mui/material";
 function Footer() {
   return (
-    <div className="signin_footer">
-      <div className="signin_footer__signin_question">
+    <Box className="signin_footer">
+      <Box className="signin_footer__signin_question">
         <a>Questions? Call 8639086987</a>
-      </div>
-      <div className="signin_footer__second_div">
+      </Box>
+      <Box className="signin_footer__second_div">
         <a href="#" className="signin_footer__second_div__faq">
           FAQ?
         </a>
@@ -22,8 +23,8 @@ function Footer() {
         <a href="#" className="signin_footer__second_div__faq">
           Privacy
         </a>
-      </div>
-      <div className="signin_footer__third_div">
+      </Box>
+      <Box className="signin_footer__third_div">
         <a href="#" className="signin_footer__third_div__signin_cookie">
           Cookie Preferences
         </a>
@@ -31,8 +32,8 @@ function Footer() {
         <a href="#" className="signin_footer__third_div__signin_cookie">
           Coorperate Information
         </a>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
 export default Footer;

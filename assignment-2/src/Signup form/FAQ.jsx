@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import AddIcon from "@mui/icons-material/Add";
 import Faq2 from "./faq2";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import './signup.scss'
+import "./signup.scss";
+import { Box } from "@mui/material";
 function Faq() {
   const [showDescription, setShowDescription] = useState(false);
 
@@ -11,11 +12,11 @@ function Faq() {
   };
 
   return (
-    <div className="Faqtotal">
-      <div className="total__Seperatingdiv"></div>
+    <Box className="Faqtotal">
+      <Box className="total__Seperatingdiv"></Box>
       <h1 className="Faqtotal__Faqheading">Frequently Asked Questions</h1>
-      <div className="Faqtotal__onequestion">
-        <div className="Faqtotal__onequestion__firstquestion">
+      <Box className="Faqtotal__onequestion">
+        <Box className="Faqtotal__onequestion__firstquestion">
           <a>How can I cancel ?</a>
           <button
             className="Faqtotal__onequestion__firstquestion__plusbutton"
@@ -23,18 +24,18 @@ function Faq() {
           >
             <AddIcon />
           </button>
-        </div>
+        </Box>
         {showDescription ? (
-          <div className="Faqtotal__onequestion__des">
+          <Box className="Faqtotal__onequestion__des">
             Netflix is flexible. There are no annoying contracts and no
             commitments. You can easily cancel your account online in two
             clicks. There are no cancellation fees – start or stop your account
             anytime.
-          </div>
+          </Box>
         ) : null}
-      </div>
+      </Box>
       <p></p>
-      <div className="Faqtotal__seperate"></div>
+      <Box className="Faqtotal__seperate"></Box>
       <Faq2 />
       <p className="navtotal1__Signupfirstpartdiv__Readytowatch">
         Ready to watch? Enter your email to create or restart your membership.
@@ -48,8 +49,8 @@ function Faq() {
       </button>
       <p></p>
       <p></p>
-      <div className="total__Seperatingdiv"></div>
-    </div>
+      <Box className="total__Seperatingdiv"></Box>
+    </Box>
   );
 }
 

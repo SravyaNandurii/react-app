@@ -5,6 +5,7 @@ import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
 import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import { Box } from "@mui/material";
 function WatchList({ watchlist1, removeFromWatchlist }) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -17,23 +18,23 @@ function WatchList({ watchlist1, removeFromWatchlist }) {
   };
 
   return (
-    <div className="total">
+    <Box className="total">
       {watchlist1.map((movie) => (
-        <div
+        <Box
           className={`total__card-container1`}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <div key={movie.id} className="total__card-container1__full">
-            <div className="total__card-container1__full__indcard1">
+          <Box key={movie.id} className="total__card-container1__full">
+            <Box className="total__card-container1__full__indcard1">
               <img
                 src={movie.poster}
                 alt="nooo"
                 className="total__card-container1__full__indcard1__movie_img1"
               />
-            </div>
+            </Box>
             {isHovered ? (
-              <div className="total__card-container1__full__hover-content1">
+              <Box className="total__card-container1__full__hover-content1">
                 <button className="total__card-container1__full__hover-content1__card_playbutton1">
                   <PlayArrowIcon />
                 </button>
@@ -72,12 +73,12 @@ function WatchList({ watchlist1, removeFromWatchlist }) {
                     U
                   </li>
                 </ul>
-              </div>
+              </Box>
             ) : null}
-          </div>
-        </div>
+          </Box>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 }
 
