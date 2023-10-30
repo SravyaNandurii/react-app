@@ -1,20 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
+import { useForm, Controller } from "react-hook-form";
 import { Button, TextField, Typography } from "@mui/material";
 import "./signup.scss";
 
 const SignUpForm = () => {
-  const [userRegistration, setUserRegistration] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-  const [formErrors, setFormErrors] = useState({});
-
-  const handleInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setUserRegistration({ ...userRegistration, [name]: value });
-  };
+  const {
+    control,
+    handleSubmit,
+    setError,
+    reset,
+    formState: { errors: formErrors },
+  } = useForm();
 
   const validate = (values, existingUsers) => {
     const errors = {};
@@ -48,15 +44,20 @@ const SignUpForm = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = (data) => {
     const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
-    const errors = validate(userRegistration, existingUsers);
-    setFormErrors(errors);
+    const errors = validate(data, existingUsers);
+  
+    Object.keys(errors).forEach(field => {
+      setError(field, {
+        type: "manual",
+        message: errors[field]
+      });
+    });
 
     if (Object.keys(errors).length === 0) {
       const newUser = {
-        ...userRegistration,
+        ...data,
         id: new Date().getTime().toString(),
       };
       sessionStorage.setItem(
@@ -64,62 +65,79 @@ const SignUpForm = () => {
         JSON.stringify([...existingUsers, newUser])
       );
       alert("Registration Successful");
-      setUserRegistration({
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
+      reset();
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="formtotal">
-      <TextField
-        label="Email Address"
+    <form onSubmit={handleSubmit(onSubmit)} className="formtotal">
+      <Controller
         name="email"
-        value={userRegistration.email}
-        onChange={handleInput}
-        className="email"
-        variant="outlined"
-        margin="normal"
-        fullWidth
-        color="error"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <>
+            <TextField
+              label="Email Address"
+              {...field}
+              className="email"
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              color="error"
+            />
+            <Typography variant="body2" color="error" className="Validationmessage">
+              {formErrors.email && formErrors.email.message}
+            </Typography>
+          </>
+        )}
       />
-      <Typography variant="body2" color="error" className="Validationmessage">
-        {formErrors.email}
-      </Typography>
 
-      <TextField
-        label="Password"
-        type="password"
+      <Controller
         name="password"
-        value={userRegistration.password}
-        onChange={handleInput}
-        className="password"
-        variant="outlined"
-        margin="normal"
-        fullWidth
-        color="error"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <>
+            <TextField
+              label="Password"
+              type="password"
+              {...field}
+              className="password"
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              color="error"
+            />
+            <Typography variant="body2" color="error" className="Validationmessage">
+              {formErrors.password && formErrors.password.message}
+            </Typography>
+          </>
+        )}
       />
-      <Typography variant="body2" color="error" className="Validationmessage">
-        {formErrors.password}
-      </Typography>
 
-      <TextField
-        label="Confirm Password"
-        type="password"
+      <Controller
         name="confirmPassword"
-        value={userRegistration.confirmPassword}
-        onChange={handleInput}
-        className="confirmpassword"
-        variant="outlined"
-        margin="normal"
-        fullWidth
-        color="error"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <>
+            <TextField
+              label="Confirm Password"
+              type="password"
+              {...field}
+              className="confirmpassword"
+              variant="outlined"
+              margin="normal"
+              fullWidth
+              color="error"
+            />
+            <Typography variant="body2" color="error" className="Validationmessage">
+              {formErrors.confirmPassword && formErrors.confirmPassword.message}
+            </Typography>
+          </>
+        )}
       />
-      <Typography variant="body2" color="error" className="Validationmessage">
-        {formErrors.confirmPassword}
-      </Typography>
 
       <Button
         type="submit"

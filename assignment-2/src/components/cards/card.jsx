@@ -46,7 +46,7 @@ const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
     setisliked1(false);
     setisliked2(!isliked2);
     setLikeIcon(isliked2 ? <FavoriteBorderIcon /> : <FavoriteIcon />);
-  };
+  };  
   return (
     <Box
       className={`card-container`}

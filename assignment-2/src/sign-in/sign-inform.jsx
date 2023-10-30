@@ -1,39 +1,60 @@
 import React from "react";
-import "../sign-in/SignInPage.scss";
-import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { Typography, Box } from "@mui/material";
 
 const SignInForm = () => {
-  console.log(localStorage);
   const navigate = useNavigate();
-  const [signInData, setSignInData] = useState({
-    email: "",
-    password: "",
-  });
-  const [errors, seterrors] = useState("");
+  const {
+    control,
+    handleSubmit,
+    setError,
+    formState: { errors: formErrors },
+  } = useForm();
 
-  const handleSignInInput = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setSignInData({ ...signInData, [name]: value });
+  const validate = (values, existingUsers) => {
+    const errors = {};
+
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else {
+      const userWithEmail = existingUsers.find(
+        (user) => user.email === values.email
+      );
+      if (!userWithEmail) {
+        errors.email = "Invalid email";
+      }
+    }
+
+    if (!values.password) {
+      errors.password = "Password is required";
+    } else {
+      const user = existingUsers.find(
+        (user) => user.email === values.email && user.password === values.password
+      );
+      if (!user) {
+        errors.password = "Invalid password";
+      }
+    }
+
+    return errors;
   };
 
-  const handleSignIn = () => {
-    const { email, password } = signInData;
+  const onSubmit = (data) => {
     const storedUsers = JSON.parse(sessionStorage.getItem("users")) || [];
-    const user = storedUsers.find(
-      (user) => user.email === email && user.password === password
-    );
+    const errors = validate(data, storedUsers);
+    Object.keys(errors).forEach((field) => {
+      setError(field, {
+        type: "manual",
+        message: errors[field],
+      });
+    });
 
-    console.log("nah", storedUsers);
-
-    if (user) {
+    if (Object.keys(errors).length === 0) {
       console.log("Authentication successful");
       navigate("/home");
     } else {
       console.log("Invalid credentials");
-      seterrors("Invalid Credentials");
     }
   };
 
@@ -49,36 +70,62 @@ const SignInForm = () => {
       <Box className="signin_cont">
         <Typography></Typography>
         <h2>Sign In</h2>
-        <input
-          className="signin_cont__signin_email"
-          placeholder="Email or Phone Number"
-          value={signInData.email}
-          name="email"
-          type="email"
-          onChange={handleSignInInput}
-          required
-        ></input>
-        {/* <p>{errors.email}</p> */}
-        <input
-          className="signin_cont__signin_password"
-          placeholder="Password"
-          value={signInData.password}
-          onChange={handleSignInInput}
-          name="password"
-          type="password"
-          required
-        ></input>
-        {/* <p>{errors.password}</p> */}
-        <Typography className="signin_cont__Validation">{errors}</Typography>
-        <button className="signin_cont__sigin_button" onClick={handleSignIn}>
-          Sign In
-        </button>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <Controller
+            name="email"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <>
+                <input
+                  {...field}
+                  className="signin_cont__signin_email"
+                  placeholder="Email or Phone Number"
+                  type="email"
+                />
+                <Typography
+                  variant="body2"
+                  color="error"
+                  className="Validationmessage"
+                >
+                  {formErrors.email && formErrors.email.message}
+                </Typography>
+              </>
+            )}
+          />
+
+          <Controller
+            name="password"
+            control={control}
+            defaultValue=""
+            render={({ field }) => (
+              <>
+                <input
+                  {...field}
+                  className="signin_cont__signin_password"
+                  placeholder="Password"
+                  type="password"
+                />
+                <Typography
+                  variant="body2"
+                  color="error"
+                  className="Validationmessage"
+                >
+                  {formErrors.password && formErrors.password.message}
+                </Typography>
+              </>
+            )}
+          />
+          <button className="signin_cont__sigin_button" type="submit">
+            Sign In
+          </button>
+        </form>
 
         <Box className="signin_cont__rememberme">
           <input
             type="checkbox"
             className="signin_cont__rememberme__checkbox"
-          ></input>
+          />
           <label>Remember me</label>
           <a href="#" className="signin_cont__rememberme__help">
             Need help?
