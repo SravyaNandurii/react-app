@@ -1,12 +1,14 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import "./signup.scss";
 import TranslateIcon from "@mui/icons-material/Translate";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import { useNavigate } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box ,Stack, TextField,Button, Typography} from "@mui/material";
+import { emailset } from "../App";
 function Signup_nav() {
   const navigate = useNavigate();
+  const [email, setEmail] = useContext(emailset);
   return (
     <Box className="navtotal1">
       <Box className="navtotal1__Signupfirstpartdiv">
@@ -16,13 +18,13 @@ function Signup_nav() {
             alt="Netflix"
             className="navtotal1__Signupfirstpartdiv__navbar__logoimg"
           />
-          <button className="navtotal1__Signupfirstpartdiv__navbar__English">
-            <TranslateIcon />
+          <Stack className="navtotal1__Signupfirstpartdiv__navbar__English" direction="row">
+            <TranslateIcon style={{ fontSize:22 }}/>
             <a className="navtotal1__Signupfirstpartdiv__navbar__English__text">
               English
             </a>
-            <ArrowDropDownIcon />
-          </button>
+            <ArrowDropDownIcon style={{ fontSize:22 }}/>
+          </Stack>
           <button
             className="navtotal1__Signupfirstpartdiv__navbar__signinbutton1"
             onClick={() => navigate("/")}
@@ -39,21 +41,31 @@ function Signup_nav() {
         <p className="navtotal1__Signupfirstpartdiv__Readytowatch">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <input
+        <Stack direction="row" justifyContent="center">
+        <TextField
           className="navtotal1__Signupfirstpartdiv__enteremail"
-          placeholder="Email Address"
-        ></input>
-        <button
+          label="Email Address"
+          onChange={(e) => setEmail(e.target.value)}
+          color="error"
+          InputLabelProps={{style:{color:"white"}}}
+          InputProps={{style:{color:"white"}}}
+          
+        />
+
+        <Button
           className="navtotal1__Signupfirstpartdiv__getstarted"
           onClick={() => navigate("/form")}
+          style={{background:"red",color:"white",height:"4vw",marginLeft:"2vw"}}
         >
-          <a className="navtotal1__Signupfirstpartdiv__getstarted__writeup">
+         
+          <Typography className="navtotal1__Signupfirstpartdiv__getstarted__writeup" variant="body">
             Get Started
-          </a>
+          </Typography>
           <a>
             <ChevronRightIcon className="navtotal1__Signupfirstpartdiv__getstarted__arrow" />
           </a>
-        </button>
+        </Button>
+        </Stack>
       </Box>
 
       <p></p>

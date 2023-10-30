@@ -30,7 +30,8 @@ const SignInForm = () => {
       errors.password = "Password is required";
     } else {
       const user = existingUsers.find(
-        (user) => user.email === values.email && user.password === values.password
+        (user) =>
+          user.email === values.email && user.password === values.password
       );
       if (!user) {
         errors.password = "Invalid password";

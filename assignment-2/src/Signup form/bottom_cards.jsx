@@ -1,6 +1,7 @@
 import React from "react";
 import "./signup.scss";
 import { Box } from "@mui/material";
+import children from "../components/Images/children.png";
 function Bottom_cards() {
   return (
     <Box className="total">
@@ -62,7 +63,7 @@ function Bottom_cards() {
           </p>
         </Box>
         <Box className="total__firstcard__firstvideo">
-          <img src="https://occ-0-3215-3663.1.nflxso.net/dnm/api/v6/19OhWN2dO19C9txTON9tvTFtefw/AAAABVr8nYuAg0xDpXDv0VI9HUoH7r2aGp4TKRCsKNQrMwxzTtr-NlwOHeS8bCI2oeZddmu3nMYr3j9MjYhHyjBASb1FaOGYZNYvPBCL.png?r=54d" />
+          <img src={children} />
         </Box>
       </Box>
       {/* <Box>

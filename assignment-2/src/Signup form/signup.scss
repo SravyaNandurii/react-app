@@ -39,7 +39,7 @@ body {
         margin-right: 2%;
         color: $color_1;
         height: 5%;
-        width: 9%;
+        width: 9vw;
         gap: 5%;
         margin-top: 2.5%;
         font-size: 1.1vw;
@@ -94,15 +94,14 @@ body {
       border: 1px solid white;
     }
     &__getstarted {
-      margin-left: 60%;
-      height: 8%;
+      // margin-left: 60%;
+      height: 20%;
       align-items: center;
       justify-content: center;
       width: 10%;
       color: $color_1;
       border: none;
       border-radius: 5px;
-      margin-top: -3.8%;
       background-color: $background-color_4;
       display: flex;
       &__writeup {
@@ -110,7 +109,7 @@ body {
       }
       &__arrow {
         // border:2px solid rgb(125, 187, 18);
-        font-size: large;
+        // font-size: large;
         @media screen and (max-width: 1024px) {
           display: none;
         }
@@ -131,17 +130,21 @@ body {
     width: 100vw;
     &__firstvideo {
       margin-left: 6%;
-      width: 700px;
-      height: 500px;
+      width: 60%;
+      overflow: hidden;
+      position: relative;
+      height: 50%;
       background-image: url("https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/tv.png");
+      @media screen and (max-width: 1204px) {
+        display: none;
+      }
       &__video1 {
-        width: 33vw;
-        height: 40vw;
-        margin-left: 14%;
-        margin-top: -8%;
-        @media screen and (max-width: 768px) {
-          display: none;
-        }
+        width: 37vw;
+        height: 45vw;
+        margin-left: 7vw;
+        margin-top:-8%;
+        position: relative;
+        
       }
     }
 
@@ -210,8 +213,6 @@ body {
   height: 70vw;
   &__formtotal {
     background-color: aliceblue;
-    // height:700px;
-    // width:101vw;
     @media screen and (max-width: 465px) {
       height: 301vw;
       width: 401vw;

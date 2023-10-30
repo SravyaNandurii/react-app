@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Button, TextField, Typography } from "@mui/material";
 import "./signup.scss";
-
+import { emailset } from "../App";
+import { useNavigate } from "react-router-dom";
 const SignUpForm = () => {
+  const navigate = useNavigate();
   const {
     control,
     handleSubmit,
@@ -11,12 +13,12 @@ const SignUpForm = () => {
     reset,
     formState: { errors: formErrors },
   } = useForm();
-
+  const emailset1 = useContext(emailset);
+  const email = emailset1[0];
   const validate = (values, existingUsers) => {
     const errors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
-
     if (!values.email) {
       errors.email = "Email id is required";
     } else if (!emailRegex.test(values.email)) {
@@ -47,11 +49,11 @@ const SignUpForm = () => {
   const onSubmit = (data) => {
     const existingUsers = JSON.parse(sessionStorage.getItem("users")) || [];
     const errors = validate(data, existingUsers);
-  
-    Object.keys(errors).forEach(field => {
+
+    Object.keys(errors).forEach((field) => {
       setError(field, {
         type: "manual",
-        message: errors[field]
+        message: errors[field],
       });
     });
 
@@ -65,6 +67,7 @@ const SignUpForm = () => {
         JSON.stringify([...existingUsers, newUser])
       );
       alert("Registration Successful");
+      navigate("/");
       reset();
     }
   };
@@ -74,7 +77,7 @@ const SignUpForm = () => {
       <Controller
         name="email"
         control={control}
-        defaultValue=""
+        defaultValue={email}
         render={({ field }) => (
           <>
             <TextField
@@ -86,7 +89,11 @@ const SignUpForm = () => {
               fullWidth
               color="error"
             />
-            <Typography variant="body2" color="error" className="Validationmessage">
+            <Typography
+              variant="body2"
+              color="error"
+              className="Validationmessage"
+            >
               {formErrors.email && formErrors.email.message}
             </Typography>
           </>
@@ -109,7 +116,11 @@ const SignUpForm = () => {
               fullWidth
               color="error"
             />
-            <Typography variant="body2" color="error" className="Validationmessage">
+            <Typography
+              variant="body2"
+              color="error"
+              className="Validationmessage"
+            >
               {formErrors.password && formErrors.password.message}
             </Typography>
           </>
@@ -132,7 +143,11 @@ const SignUpForm = () => {
               fullWidth
               color="error"
             />
-            <Typography variant="body2" color="error" className="Validationmessage">
+            <Typography
+              variant="body2"
+              color="error"
+              className="Validationmessage"
+            >
               {formErrors.confirmPassword && formErrors.confirmPassword.message}
             </Typography>
           </>

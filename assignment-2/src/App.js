@@ -8,10 +8,11 @@ import SignupPage from "./Signup form/Signup_page";
 import TotalSignup_form from "./Signup form/totalfomsignup";
 import Charcters from "./components/characters/characters";
 export const Usercontext = createContext();
-
+export const emailset=createContext();
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [email,setemail]=useState("");
   const [watchlist, setWatchlist] = useState(() => {
     const storedWatchlist = localStorage.getItem("watchlist");
     return storedWatchlist ? JSON.parse(storedWatchlist) : [];
@@ -88,9 +89,11 @@ const App = () => {
   ]);
 
   return (
+    <emailset.Provider value={[email,setemail]} >
     <Usercontext.Provider value={movies}>
       <RouterProvider router={router} />
     </Usercontext.Provider>
+    </emailset.Provider>
   );
 };
 

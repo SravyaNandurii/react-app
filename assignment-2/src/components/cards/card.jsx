@@ -10,7 +10,15 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import { Box } from "@mui/material";
+import {
+  Box,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  Button,
+  colors,
+} from "@mui/material";
+import Playbutton from "../Playbutton/playbutton";
 
 const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -19,6 +27,8 @@ const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
   const [isliked1, setisliked1] = useState(false);
   const [isliked2, setisliked2] = useState(false);
   const [likeIcon, setLikeIcon] = useState(<ThumbUpOffAltOutlinedIcon />);
+  const [showModal, setShowModal] = useState(false);
+
   const isliked = watchlist.some((movie) => movie.id === r.id);
   const handleAddToWatchlist = () => {
     if (isliked == true) {
@@ -46,7 +56,15 @@ const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
     setisliked1(false);
     setisliked2(!isliked2);
     setLikeIcon(isliked2 ? <FavoriteBorderIcon /> : <FavoriteIcon />);
-  };  
+  };
+
+  const handlePlayButtonClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   return (
     <Box
       className={`card-container`}
@@ -58,9 +76,30 @@ const Card = ({ r, watchlist, addToWatchlist, removeFromWatchlist }) => {
       </Box>
       {isHovered ? (
         <Box className="hover-content">
-          <button className="card_playbutton">
+          <button className="card_playbutton" onClick={handlePlayButtonClick}>
             <PlayArrowIcon />
           </button>
+          <Dialog
+            open={showModal}
+            onClose={handleCloseModal}
+            className="Dialogbox"
+          >
+            <DialogTitle style={{ background: "black", color: "white" }}>
+              {r.title}
+            </DialogTitle>
+            <DialogContent
+              style={{ height: "1200px", background: "black", color: "white" }}
+            >
+              <img
+                src={r.character}
+                alt={r.title}
+                style={{ width: "80%", height: "60%" }}
+              />
+              <Playbutton />
+              <p>{r.description}</p>
+              <Button onClick={handleCloseModal}>Close</Button>
+            </DialogContent>
+          </Dialog>
           <button className="card_addlist" onClick={handleAddToWatchlist}>
             {isliked ? (
               <CheckCircleOutlineIcon />
