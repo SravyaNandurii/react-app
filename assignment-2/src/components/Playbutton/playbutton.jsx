@@ -7,11 +7,11 @@ const Playbutton = () => {
   return (
     <Box className="Playbutton">
       <button className="Playbutton_play">
-        <PlayArrowIcon className="Playbutton_play__icon" />
+        <PlayArrowIcon className="Playbutton_play__icon" style={{ fontSize:22 }}/>
         <span>Play</span>
       </button>
       <button className="Playbutton_moreinfo">
-        <InfoOutlinedIcon className="Playbutton_moreinfo__icon" />
+        <InfoOutlinedIcon className="Playbutton_moreinfo__icon" style={{ fontSize:22 }}/>
         <span>Info</span>
       </button>
     </Box>
